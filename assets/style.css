@@ -5,5 +5,34 @@
 }
 
 body{
-    font-family: ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.input{
+    text-align: center;
+}
+
+input[type="text"]{
+    height: 30px;
+    width: 400px;
+    background-color: rgb(243, 243, 243);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 3px;
+    margin: 100px 0;
+    padding: 10px;
+}
+
+input[type="submit"]{
+    height: 30px;
+    width: 100px;
+    background-color: rgb(243, 243, 243);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 3px;
+    margin: 100px 0;
 }
