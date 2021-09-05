@@ -6,17 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="./assets/script.js">
 </head>
 <body>
     <div class="input">
         <input type="text" class="inputValue" placeholder="Enter city here..">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="button">
     </div>
     <div class="display">
+         <!--I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index -->
         <h1 class="name"></h1>
-        <p class="desc"></p>
+        <p class="date"></p>
+
+        <p class="icon"></p> <p class="desc"></p>
+        
         <p class="temp"></p>
+        <p class="humidity"></p>
+        <p class="windSpeed"></p>
+        <p class="uvIndex"></p>
     </div>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
