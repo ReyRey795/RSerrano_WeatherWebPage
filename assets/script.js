@@ -17,6 +17,8 @@ var uvIndex = document.querySelector('.uvIndex');
 var arrayDay = document.querySelector('.numberedDay')
 
 
+
+
 button.addEventListener('click', function() {
     fetch('http://api.openweathermap.org/data/2.5/forecast?q='+inputValue.value+'&units=imperial&appid=aa46b7171a4a8a6c05d7c89ff0330127')
     .then(response => response.json())
@@ -39,9 +41,10 @@ button.addEventListener('click', function() {
          const daily = data.daily;
 
          for (let i = 0; i < 5; i++){
-             var dailyWeather = daily[i]
 
-             
+             var dailyWeather = data.daily[i]
+             console.log(i);
+
              var arrayDayValue = dailyWeather;
              var minTempValue = 'Min temp. '+ dailyWeather.temp.min + '*F';
              var maxTempValue = 'Max temp. '+ dailyWeather.temp.max + '*F';
@@ -51,6 +54,7 @@ button.addEventListener('click', function() {
              var humidityValue = 'Humidity: ' + dailyWeather.humidity;
              var windSpeedValue = 'Wind Speed: ' + dailyWeather.wind_speed;
              var uvIndexValue = 'UV Index: ' + dailyWeather.uvi;
+             
              uvIndex.innerHTML = uvIndexValue;
              windSpeed.innerHTML = windSpeedValue;
              humidity.innerHTML = humidityValue;
