@@ -49,6 +49,10 @@ button.addEventListener('click', function() {
              var iconValue = dailyWeather.weather[0].icon;
              var dateValue = dailyWeather.dt;
              var humidityValue = 'Humidity: ' + dailyWeather.humidity;
+             var windSpeedValue = 'Wind Speed: ' + dailyWeather.wind_speed;
+             var uvIndexValue = 'UV Index: ' + dailyWeather.uvi;
+             uvIndex.innerHTML = uvIndexValue;
+             windSpeed.innerHTML = windSpeedValue;
              humidity.innerHTML = humidityValue;
              date.innerHTML = dateValue;
              icon.innerHTML = iconValue;
@@ -57,29 +61,6 @@ button.addEventListener('click', function() {
              tempMax.innerHTML = maxTempValue;
              arrayDay.innerHTML = arrayDayValue;
              Cname.innerHTML = nameValue;
-         
-
-        // for (let i = 0; i < list.length; i++) {    lat: 29.4241 lon: -98.4936
-        
-        //     console.log();
-        // (data => {
-        //     var nameValue = data['name'];
-        //     var tempValue = data['main']['temp'] + '*F';
-        //     var iconSymbol = data['weather']['icon'];
-        //     var descValue = data['weather'][0]['description'];
-        //     var dateValue = data['dt-text'];
-        //     var humidityValue = data['main']['humidity'];
-        //     var windSpeedValue = data['wind']['speed'];
-        //     var uvIndexValue = data[''];
-    
-        //     Cname.innerHTML = nameValue;
-        //     temp.innerHTML = tempValue + iconSymbol;
-        //     desc.innerHTML = descValue;
-        //     date.innerHTML = dateValue;
-        //     humidity.innerHTML = humidityValue;
-        //     windSpeed.innerHTML = windSpeedValue;
-        //     uvIndex.innerHTML = uvIndexValue;
-        // })
     }
 })
     .catch(err => alert('Wrong input for the city name!'))
