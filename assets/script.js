@@ -4,6 +4,8 @@ var Cname = document.querySelector('.name');
 var desc = document.querySelector('.desc');
 var temp = document.querySelector('.temp');
 var date = document.querySelector('.date');
+var lat = document.querySelector('.lat');
+var long = document.querySelector('.long');
 
 //do this after other information is done
 var icon = document.querySelector('.icon');
@@ -12,26 +14,33 @@ var humidity = document.querySelector('.humidity');
 var windSpeed = document.querySelector('.windSpeed');
 var uvIndex = document.querySelector('.uvIndex');
 
+
 button.addEventListener('click', function() {
     fetch('http://api.openweathermap.org/data/2.5/forecast?q='+inputValue.value+'&units=imperial&appid=aa46b7171a4a8a6c05d7c89ff0330127')
     .then(response => response.json())
     .then(data => {
-         console.log(data)
-        console.log(data.city.name)
-        console.log(data.list[2].main.temp)    
-     var latitude = data.lat;
-     var longitude = data.lon;
-    })
-    .catch(err => alert('Wrong input for the city name!')); 
+        // console.log(data)
+        // console.log(data.city.name)
+        // console.log(data.city.coord.lon)    
+     var latitude = data.city.coord.lat;
+     var longitude = data.city.coord.lon;
+     lat.innerHTML = latitude;
+     long.innerHTML = longitude;
+    
+   
 
     fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+latitude+'&lon='+longitude+'&units=imperial&appid=aa46b7171a4a8a6c05d7c89ff0330127')
     .then(response => response.json())
     .then(data => {
          console.log(data)
          const daily = data.daily;
+
          for (let i = 0; i < 5; i++){
              var dailyWeather = daily[i]
-             var nameValue = 
+             
+             var nameValue = data.coord.name;
+
+             Cname.innerHTML = nameValue;
          
 
         // for (let i = 0; i < list.length; i++) {    lat: 29.4241 lon: -98.4936
@@ -59,5 +68,4 @@ button.addEventListener('click', function() {
 })
     .catch(err => alert('Wrong input for the city name!'))
 
-});
-
+})});
