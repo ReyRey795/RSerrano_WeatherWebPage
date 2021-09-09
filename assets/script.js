@@ -43,10 +43,14 @@ button.addEventListener('click', function() {
 
              
              var arrayDayValue = dailyWeather;
-             var minTempValue = 'Min temp. '+dailyWeather.temp.min + '*F';
-             var maxTempValue = 'Max temp. '+dailyWeather.temp.max + '*F';
+             var minTempValue = 'Min temp. '+ dailyWeather.temp.min + '*F';
+             var maxTempValue = 'Max temp. '+ dailyWeather.temp.max + '*F';
              var descValue = dailyWeather.weather[0].description;
              var iconValue = dailyWeather.weather[0].icon;
+             var dateValue = dailyWeather.dt;
+             var humidityValue = 'Humidity: ' + dailyWeather.humidity;
+             humidity.innerHTML = humidityValue;
+             date.innerHTML = dateValue;
              icon.innerHTML = iconValue;
              desc.innerHTML = descValue;
              tempMin.innerHTML = minTempValue;
