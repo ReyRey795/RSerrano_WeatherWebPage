@@ -47,7 +47,8 @@ button.addEventListener('click', function() {
              console.log(i);
 
              const iDay = document.createElement('div');
-
+            
+             const iCityName = document.createElement('h1');
              const iUvIndex = document.createElement('p');
              const iWindSpeed = document.createElement('p');
              const iHumidity = document.createElement('p');
@@ -56,31 +57,30 @@ button.addEventListener('click', function() {
              const iDesc = document.createElement('p');
              const iMaxTemp = document.createElement('p');
              const iMinTemp = document.createElement('p');
+             
+             iCityName.textContent = nameValue;
+             iUvIndex.textContent = 'UV Index: ' + dailyWeather.uvi;
+             iWindSpeed.textContent =  'Wind Speed: ' + dailyWeather.wind_speed;
+             iHumidity.textContent = 'Humidity: ' + dailyWeather.humidity;
+             iDate.textContent = new Date(dailyWeather.dt*1000).toLocaleDateString();
+             iIcon.textContent = dailyWeather.weather[0].icon;
+             iDesc.textContent = dailyWeather.weather[0].description;
+             iMaxTemp.textContent = 'Max temp. '+ dailyWeather.temp.max + '*F';
+             iMinTemp.textContent = 'Min temp. '+ dailyWeather.temp.min + '*F';
+            
+             iDay.appendChild(iCityName);
+             iDay.appendChild(iUvIndex);
+             iDay.appendChild(iWindSpeed);
+             iDay.appendChild(iHumidity);
+             iDay.appendChild(iDate);
+             iDay.appendChild(iIcon);
+             iDay.appendChild(iDesc);
+             iDay.appendChild(iMaxTemp);
+             iDay.appendChild(iMinTemp);
 
-             iuvIndex.textContent = 'UV Index: ' + dailyWeather.uvi;
-             iwindSpeed.textContent =  'Wind Speed: ' + dailyWeather.wind_speed;
-             iDay.appendChild(iuvIndex);
-             iDay.appendChild(iwindSpeed);
              
 
-             var arrayDayValue = dailyWeather;
-             var minTempValue = 'Min temp. '+ dailyWeather.temp.min + '*F';
-             var maxTempValue = 'Max temp. '+ dailyWeather.temp.max + '*F';
-             var descValue = dailyWeather.weather[0].description;
-             var iconValue = dailyWeather.weather[0].icon;
-             var dateValue = dailyWeather.dt;
-             var humidityValue = 'Humidity: ' + dailyWeather.humidity;
-             var windSpeedValue = 'Wind Speed: ' + dailyWeather.wind_speed;
              
-             windSpeed.innerHTML = windSpeedValue;
-             humidity.innerHTML = humidityValue;
-             date.innerHTML = new Date(dateValue*1000).toLocaleDateString();
-             icon.innerHTML = iconValue;
-             desc.innerHTML = descValue;
-             tempMin.innerHTML = minTempValue;
-             tempMax.innerHTML = maxTempValue;
-             arrayDay.innerHTML = arrayDayValue;
-             Cname.innerHTML = nameValue;
 
              cityContainer.appendChild(iDay);
     }
