@@ -42,8 +42,8 @@ input[type="submit"]{
 }
 
 .collapsible{
-    background-color: cadetblue;
-    color: cornflowerblue;
+    background-color: rgb(126, 126, 126);
+    color: rgb(0, 0, 0);
     cursor: pointer;
     padding: 20px;
     width: 100%;
@@ -53,7 +53,7 @@ input[type="submit"]{
     font-size: 23px;
 }
 
-.active, .collapsible:hover{
+.active, .collapsible:hover, input[type='submit']:hover{
     background-color:burlywood;
 }
 
