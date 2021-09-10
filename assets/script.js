@@ -34,7 +34,7 @@ for (i = 0; i < coll.length; i++) {
 
 
 button.addEventListener('click', function() {
-    fetch('http://api.openweathermap.org/data/2.5/forecast?q='+inputValue.value+'&units=imperial&appid=aa46b7171a4a8a6c05d7c89ff0330127')
+    fetch('https://api.openweathermap.org/data/2.5/forecast?q='+inputValue.value+'&units=imperial&appid=aa46b7171a4a8a6c05d7c89ff0330127')
     .then(response => response.json())
     .then(data => {
         console.log(data)
