@@ -40,3 +40,26 @@ input[type="submit"]{
 .display{
     text-align: center;
 }
+
+.collapsible{
+    background-color: cadetblue;
+    color: cornflowerblue;
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    border: 2px solid black;
+    text-align: center;
+    outline: none;
+    font-size: 23px;
+}
+
+.active, .collapsible:hover{
+    background-color:burlywood;
+}
+
+.content {
+    padding: 0 20px;
+    display: none;
+    overflow: hidden;
+    background-color: #c7c7c7;
+}
