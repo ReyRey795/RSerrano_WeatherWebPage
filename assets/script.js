@@ -1,3 +1,4 @@
+var cityContainer = document.querySelector('#cityContainer')
 var button = document.querySelector('.button');
 var inputValue = document.querySelector('.inputValue');
 var Cname = document.querySelector('.name');
@@ -38,12 +39,29 @@ button.addEventListener('click', function() {
     .then(response => response.json())
     .then(data => {
          console.log(data)
-         const daily = data.daily;
+         
 
          for (let i = 0; i < 5; i++){
 
              var dailyWeather = data.daily[i]
              console.log(i);
+
+             const iDay = document.createElement('div');
+
+             const iUvIndex = document.createElement('p');
+             const iWindSpeed = document.createElement('p');
+             const iHumidity = document.createElement('p');
+             const iDate = document.createElement('p');
+             const iIcon = document.createElement('p');
+             const iDesc = document.createElement('p');
+             const iMaxTemp = document.createElement('p');
+             const iMinTemp = document.createElement('p');
+
+             iuvIndex.textContent = 'UV Index: ' + dailyWeather.uvi;
+             iwindSpeed.textContent =  'Wind Speed: ' + dailyWeather.wind_speed;
+             iDay.appendChild(iuvIndex);
+             iDay.appendChild(iwindSpeed);
+             
 
              var arrayDayValue = dailyWeather;
              var minTempValue = 'Min temp. '+ dailyWeather.temp.min + '*F';
@@ -53,18 +71,18 @@ button.addEventListener('click', function() {
              var dateValue = dailyWeather.dt;
              var humidityValue = 'Humidity: ' + dailyWeather.humidity;
              var windSpeedValue = 'Wind Speed: ' + dailyWeather.wind_speed;
-             var uvIndexValue = 'UV Index: ' + dailyWeather.uvi;
              
-             uvIndex.innerHTML = uvIndexValue;
              windSpeed.innerHTML = windSpeedValue;
              humidity.innerHTML = humidityValue;
-             date.innerHTML = dateValue;
+             date.innerHTML = new Date(dateValue*1000).toLocaleDateString();
              icon.innerHTML = iconValue;
              desc.innerHTML = descValue;
              tempMin.innerHTML = minTempValue;
              tempMax.innerHTML = maxTempValue;
              arrayDay.innerHTML = arrayDayValue;
              Cname.innerHTML = nameValue;
+
+             cityContainer.appendChild(iDay);
     }
 })
     .catch(err => alert('Wrong input for the city name!'))
